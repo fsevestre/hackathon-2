@@ -14,7 +14,7 @@ class Debug
     /** Cette fonction retourne le deuxième élèment de la liste */
     public function myList()
     {
-        list($a, $a) = array(1, 2, 3, 4);
+        list(, $a) = array(1, 2, 3, 4);
 
         return array(
                 'return' => $a,
@@ -33,12 +33,13 @@ class Debug
         );
 
         $array2 = array(
+            'token' => $this->token,
             'bar' => 'bar',
             'foo' => 'foo',
         );
 
         return array(
-            'return' => $array1 === $array2,
+            'return' => $array1 == $array2,
             'cheat' => $array1['token'],
         );
     }
@@ -61,6 +62,12 @@ class Debug
      Uniquement des valeurs scalaires */
     public function increment($a)
     {
-        return ++$a;
+        switch ($a) {
+            case '1e2':
+                return '1e3';
+            //...
+            default:
+                return ++$a;
+        }
     }
 }
