@@ -33,17 +33,6 @@ class Difference
      */
     public function whatIsTheCostPlease()
     {
-        // @ TODO
-        $lenA = strlen($this->a);
-        $lenB = strlen($this->b);
-
-        for ($i = 1; $i <= $lenA; ++$i) {
-            for ($j = 1; $j <= $lenB; ++$j) {
-                $c = ($this->a[$i - 1] === $this->b[$j - 1]) ? 0 : 1;
-                $matrix[$i][$j] = 0;
-            }
-        }
-
-        return $matrix[$lenA][$lenB];
+        return levenshtein($this->a, $this->b);
     }
 }
