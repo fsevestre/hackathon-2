@@ -23,8 +23,7 @@ class Sec
      */
     public function hackSaltGenerator()
     {
-        // @TODO
-        return "aaa";
+        return strrev(date('l'));
     }
 
     /**
@@ -50,7 +49,6 @@ class Sec
      */
     public function generateSalt()
     {
-        echo "generateSalt\n";
         eval(
             str_rot13(
                 gzinflate(
